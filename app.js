@@ -74,8 +74,6 @@ const game = startGame("Itik", "x");
 
 const box_wrapper = document.querySelector(".box-wrapper");
 
-const box_wrapper = document.querySelector(".box-wrapper");
-
 for (var i = 1; i <= 9; i++) {
   const box = document.createElement("div");
   box.className = `box box-${i}`;
