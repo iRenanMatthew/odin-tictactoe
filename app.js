@@ -1,6 +1,6 @@
 let player_one = 0;
 let player_two = 0;
-const tile_wrapper = ['o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'];
+const tile_wrapper = ['', '', '', '', '', '', '', '', ''];
 const column_count = 3;
 const [tile_one, tile_two, tile_three, tile_four, tile_five, tile_six, tile_seven, tile_eight, tile_nine] = tile_wrapper;
 
@@ -25,11 +25,12 @@ const startGame = (player,key) => {
  
 
     const gameLogic = (player, key) =>{
-
+        // [...document.querySelectorAll(".box-wrapper .box")].map(tile => tile.classList.contains("cross") ? 1 : tile.classList.contains("circle") ? 2 : 0)
     }
 
 
     const gameLogicChecker = () => {
+
         if ((tile_one === tile_two) && (tile_two === tile_three) && tile_one !== 0){
             // alert(playerVerifier(key));
         } else if((tile_four === tile_five) && (tile_five === tile_six) && tile_four !== 0){
@@ -52,8 +53,6 @@ const startGame = (player,key) => {
         return name;
     }
 
-    
-
     return {gameLogicChecker};
 
 }
@@ -62,7 +61,7 @@ const game = startGame('Itik','x');
 
 
 
-game.gameLogicChecker();
+
 
 
 const box_wrapper = document.querySelector('.box-wrapper');
@@ -79,6 +78,7 @@ document.querySelectorAll(".box").forEach((box) => {
         console.log(e);
         if (!box.classList.contains("circle") && !box.classList.contains("cross")){
                 box.className += ' cross';
+                game.gameLogicChecker();
                 setTimeout(randomBot, 300);
         } else {
             alert('Please select other box');
@@ -95,6 +95,7 @@ function randomBot() {
         return;
     } else {
         let randomIndex = Math.floor(Math.random() * emptyBoxes.length);
+        game.gameLogicChecker();
         console.log(emptyBoxes)
         emptyBoxes[randomIndex].classList.add('circle');
     }
